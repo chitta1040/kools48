@@ -13,9 +13,9 @@ fi
 #{	
 	#IP4=$(curl -4 -s icanhazip.com)
 	#IP6=$(curl -6 -s icanhazip.com | cut -f1-4 -d':')
-	vPrefix=$(curl -6 -s icanhazip.com | cut -f1-3 -d':')
+	vPrefixx=$(curl -6 -s icanhazip.com | cut -f1-3 -d':')
 	vIp=$(curl -4 -s icanhazip.com)
-	echo "Internal ip = ${vIp}. Exteranl sub for ip6 = ${vPrefix}"
+	echo "Internal ip = ${vIp}. Exteranl sub for ip6 = ${vPrefixx}"
 	#read -r -p "What is your IPv6 prefix? eg:(2604:180:2:11c7) " vPrefix
 	#read -r -p "VPS IP: " vIp
 	read -r -p "Quantity IP for generate: " vCount
@@ -117,8 +117,10 @@ fi
   echo ====================================
   echo      Adding IPs to interface: OK!
   echo ====================================
-
+  count = 1
   for i in `cat ip.list`; do
+      let "count += 1"
+      echo $count
       #echo "ifconfig eth0 inet6 add $i/64"
       # Если сеть 64 то $i/64 если 48 то $i/48
       ifconfig enp1s0f0 inet6 add $i/64
