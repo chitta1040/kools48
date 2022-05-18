@@ -117,10 +117,10 @@ fi
   echo ====================================
   echo      Adding IPs to interface: OK!
   echo ====================================
-  count = 1
+  dcount = 1
   for i in `cat ip.list`; do
-      let "count += 1"
-      echo $count
+      let "dcount += 1"
+      echo $dcount
       #echo "ifconfig eth0 inet6 add $i/64"
       # Если сеть 64 то $i/64 если 48 то $i/48
       ifconfig enp1s0f0 inet6 add $i/64
