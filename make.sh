@@ -19,7 +19,7 @@ fi
 	#read -r -p "What is your IPv6 prefix? eg:(2604:180:2:11c7) " vPrefix
 	#read -r -p "VPS IP: " vIp
 	read -r -p "Quantity IP for generate: " vCount
-	read -r -p "IP who get access to this Proxies: " vIp2
+	#read -r -p "IP who get access to this Proxies: " vIp2
 	
 
 	yum -y groupinstall "Development Tools"
@@ -34,7 +34,7 @@ fi
 	chmod 0755 Genips.sh
 	chmod 0755 3proxycfg.sh
 	
-	sed -i "s/1.4.8.8/$vIp2/g" /root/3proxy/3proxycfg.sh
+	#sed -i "s/1.4.8.8/$vIp2/g" /root/3proxy/3proxycfg.sh
 	sed -i "s/i127.0.0.1/i$vIp/g" /root/3proxy/3proxycfg.sh
 	
 	//extend file limits
